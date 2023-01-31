@@ -1,9 +1,14 @@
 import _ from 'lodash';
-import getData from './getFileData.js';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 
-const gendiff = (file1, file2) => {
-  const data1 = getData(file1);
-  const data2 = getData(file2);
+const getAbsPath = (file) => path.resolve(process.cwd(), file);
+const getFileData = (file) => readFileSync(getAbsPath(file), 'utf-8');
+const getDataObj = (file) => JSON.parse(getFileData(file));
+
+const genDiff = (filePath1, filePath2) => {
+  const data1 = getDataObj(filePath1);
+  const data2 = getDataObj(filePath2);
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
   const keys = _.union(keys1, keys2);
@@ -21,7 +26,7 @@ const gendiff = (file1, file2) => {
     }
     return [...acc, ...newAcc];
   }, []);
-  return `{ \n${result.join('\n')}\n} `;
+  return `{\n${result.join('\n')}\n}`;
 };
 
-export default gendiff;
+export default genDiff;

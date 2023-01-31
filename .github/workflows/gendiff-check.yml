@@ -6,7 +6,7 @@ env:
   CI: true
 
 jobs:
-  build:
+  build: Gendiff
     runs-on: [ubuntu-latest, macos-latest]
       strategy:
         matrix:

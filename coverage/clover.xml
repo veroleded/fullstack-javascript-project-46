@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1675178540301" clover="3.2.0">
-  <project timestamp="1675178540301" name="All files">
+<coverage generated="1675187309100" clover="3.2.0">
+  <project timestamp="1675187309100" name="All files">
     <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="5" elements="29" coveredelements="29" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
     <file name="index.js" path="/Users/veroled/projects/fullstack-javascript-project-46/src/index.js">
       <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="5"/>

@@ -3,10 +3,10 @@ install-deps:
 gendiff:	
 		bin/gendiff.js
 test:
-		npx jest .
+		npm test
 lint:
 		npx eslint .
 publish:
 		npm publish --dry-run
 test-coverage:
-		npx jest --coverage .
+		npm test -- --coverage 

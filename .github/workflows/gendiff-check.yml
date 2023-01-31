@@ -1,6 +1,8 @@
 name: gendiff-check
 
-on: push
+on:
+  - push
+  - pull_request
 
 env:
   CI: true

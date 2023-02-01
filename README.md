@@ -8,4 +8,6 @@
 ### Example of gendiff work:
 [![asciicast](https://asciinema.org/a/9Ja8VIRTTLNPWheHeNsey3iCT.svg)](https://asciinema.org/a/9Ja8VIRTTLNPWheHeNsey3iCT)
 
+[![asciicast](https://asciinema.org/a/yp0UJekMkOqleJ2FdSpk35iwM.svg)](https://asciinema.org/a/yp0UJekMkOqleJ2FdSpk35iwM)
+
 

@@ -5,11 +5,17 @@ import genDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const getFixturePath = (fileName) => path.join(__dirname, '..', '__fixtures__', fileName);
-const genFileData = (fileName) => readFileSync(getFixturePath(fileName), 'utf-8');
 
-test('1', () => {
-  const expected = genFileData('expected.txt');
-  const actual = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'));
-  expect(actual).toBe(expected);
+const getFixturePath = (fileName) => path.join(__dirname, '..', '__fixtures__', fileName);
+
+const getFileData = (fileName) => readFileSync(getFixturePath(fileName), 'utf-8');
+
+const expectedJson = getFileData('json.txt');
+const formatsFile = ['json', 'yml', 'yaml'];
+
+test.each(formatsFile)('name', (extension) => {
+  const fileName1 = getFixturePath(`file1.${extension}`);
+  const fileName2 = getFixturePath(`file2.${extension}`);
+  const actual = genDiff(fileName1, fileName2);
+  expect(actual).toBe(expectedJson);
 });

@@ -10,12 +10,12 @@ const getFixturePath = (fileName) => path.join(__dirname, '..', '__fixtures__', 
 
 const getFileData = (fileName) => readFileSync(getFixturePath(fileName), 'utf-8');
 
-const expectedJson = getFileData('json.txt');
+const expected = getFileData('expected.txt');
 const formatsFile = ['json', 'yml', 'yaml'];
 
-test.each(formatsFile)('name', (extension) => {
+test.each(formatsFile)('gen', (extension) => {
   const fileName1 = getFixturePath(`file1.${extension}`);
   const fileName2 = getFixturePath(`file2.${extension}`);
   const actual = genDiff(fileName1, fileName2);
-  expect(actual).toBe(expectedJson);
+  expect(actual).toBe(expected);
 });

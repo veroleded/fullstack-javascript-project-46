@@ -20,7 +20,7 @@ const buildTree = (data1, data2) => {
     return data1[key] === data2[key]
       ? { key, status: 'notChanged', value: data2[key] }
       : {
-        key, status: 'changed', value1: data1[key], value2: data2[key],
+        key, status: 'changed', firstFileValue: data1[key], secondFileValue: data2[key],
       };
   });
   return result;

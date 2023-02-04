@@ -26,8 +26,8 @@ const makeStylish = (data) => {
           return `${intendForSign}  ${node.key}: ${stringify(node.value, replacer, depth)}`;
         case 'changed':
           return [
-            `${intendForSign}- ${node.key}: ${stringify(node.value1, replacer, depth)}`,
-            `${intendForSign}+ ${node.key}: ${stringify(node.value2, replacer, depth)}`,
+            `${intendForSign}- ${node.key}: ${stringify(node.firstFileValue, replacer, depth)}`,
+            `${intendForSign}+ ${node.key}: ${stringify(node.secondFileValue, replacer, depth)}`,
           ].join('\n');
         case 'changedChildren':
           return `${intendForSign}  ${node.key}: ${['{', ...iter(node.value, depth + 1), `${intend}}`].join('\n')}`;

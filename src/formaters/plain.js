@@ -7,10 +7,10 @@ const getValue = (data) => {
   return _.isString(data) ? `'${data}'` : `${data}`;
 };
 
-const plain = (tree) => {
-  if (!_.isArray) return `${tree}`;
-  const iter = (data, valuePath = '') => {
-    const lines = data.flatMap((node) => {
+const makePlain = (data) => {
+  if (!_.isArray) return `${data}`;
+  const iter = (tree, valuePath = '') => {
+    const lines = tree.flatMap((node) => {
       const nextValuePath = `${valuePath}${node.key}.`;
       switch (node.status) {
         case 'deleted':
@@ -18,7 +18,7 @@ const plain = (tree) => {
         case 'added':
           return `Property '${valuePath}${node.key}' was added with value: ${getValue(node.value)}`;
         case 'changed':
-          return `Property '${valuePath}${node.key}' was updated. From ${getValue(node.value1)} to ${getValue(node.value2)}`;
+          return `Property '${valuePath}${node.key}' was updated. From ${getValue(node.firstFileValue)} to ${getValue(node.secondFileValue)}`;
         case 'changedChildren':
           return iter(node.value, nextValuePath);
         case 'notChanged':
@@ -29,7 +29,7 @@ const plain = (tree) => {
     });
     return lines.join('\n');
   };
-  return iter(tree);
+  return iter(data);
 };
 
-export default plain;
+export default makePlain;

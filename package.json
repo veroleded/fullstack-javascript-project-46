@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "[![Actions Status](https://github.com/veroleded/fullstack-javascript-project-46/workflows/hexlet-check/badge.svg)](https://github.com/veroleded/fullstack-javascript-project-46/actions)",
-  "main": "gendiff",
+  "main": "./index.js",
   "scripts": {
     "test": "jest"
   },
